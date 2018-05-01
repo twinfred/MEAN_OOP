@@ -31,10 +31,31 @@
             console.log("Health increased by 10. Current health is: "+this.health);
             return this;
         }
-        john = new Ninja('John')
-        john.sayName()
-        john.showStats()
-        john.drinkSake()
+        Ninja.prototype.punch = function(opponent){
+            self = this;
+            while(self instanceof Ninja){
+                opponent.health -= 5;
+                console.log(opponent.name+" was PUNCHED by "+this.name+" and lost 5 health.")
+                return this;
+            }
+        }
+        Ninja.prototype.kick = function(opponent){
+            while(self instanceof Ninja){
+                damage = (15 * this.readStrength());
+                opponent.health -= damage;
+                console.log(opponent.name+" was KICKED by "+this.name+" and lost "+damage+" health.")
+                return this;
+            }
+        }
+        john = new Ninja('John');
+        patrick = new Ninja('Patrick');
+        john.sayName();
+        john.showStats();
+        john.drinkSake();
+        patrick.punch(john);
+        john.showStats();
+        john.kick(patrick);
+        patrick.showStats();
     </script>
     <title>Document</title>
 </head>

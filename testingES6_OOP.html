@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        class Dot {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                console.log(`You created a ${ this.constructor.name }!`);
+            }
+            showLocation() {
+                console.log(`This ${ this.constructor.name } is at x ${this.x} and y ${this.y}`);
+            }
+            static getHelp() {
+                console.log("This is a Dot class, for created Dots! A Dot takes x and y coordinates, type 'new Dot' to create one!");
+            }
+            parentFunction(){
+                return "This is coming from the parent!";
+            }
+        }
+        class Circle extends Dot {
+            constructor(x, y, radius) {
+                super(x, y);
+                this.radius = radius;
+            }
+            childFunction() {
+                const message = super.parentFunction();
+                console.log(message);
+            }
+            get diameter() {
+                return this.radius * 2;
+            }
+        }
+        // const dot1 = new Dot(10, 10);
+        // const dot2 = new Dot(5, 13);
+        // dot2.showLocation();
+        // const dot3 = new Dot(4, 2);
+        // console.log(dot3.showLocation);
+        // Dot.getHelp();
+        const circle1 = new Circle(33, 33, 33);
+        console.log(circle1);
+        circle1.showLocation();
+        console.log(circle1.diameter);
+        // const circle2 = new Circle(1, 2, 3);
+        // circle2.childFunction();
+        
+        class Pizza {
+            constructor(radius, slices) {
+                this.radius = radius;
+                this._slices = slices;
+            }
+            get slices () { 
+                return this._slices; 
+            }
+            set slices (slices) { 
+                this._slices = slices;
+            }
+        };
+        // const pie = new Pizza(12, 6);
+        // console.log(pie.slices);
+        // pie.slices = 12;
+        // console.log(pie.slices);
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
